@@ -3,7 +3,6 @@
     <html>
         <script src="https://westmont-college--brycen23.sandbox.my.site.com/syllabi/lightning/lightning.out.js" ></script>
 
-
         <div data-lightning-out="true"></div>
 
         <script>
@@ -12,16 +11,20 @@
             const lightningEndPointURI = "https://westmont-college--brycen23.sandbox.my.site.com";
             const targetElement = document.querySelector("[data-lightning-out]");
             const componentAttributes = {};
-        
-            $lightning.use(
+
+            $Lightning.use(
                 appName,
-                function(){
-                    $lightning.createComponent(
+                () => {
+                    $Lightning.createComponent(
                         componentName,
                         componentAttributes,
                         targetElement,
-                        function(cmp){
-                            console.log("lc created");
+                        (cmp, status, errorMessage) => {
+                            if (status === "SUCCESS") {
+                                console.log("lc created");
+                            } else {
+                                console.error("Error creating component:", errorMessage);
+                            }
                         }
                     );
                 },
@@ -29,5 +32,4 @@
             );
         </script>
     </html>
-
-</aura:application>	
+</aura:application>
