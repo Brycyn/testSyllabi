@@ -1,33 +1,3 @@
 <aura:application description="Accordiontwowrapper" access="GLOBAL" extends="ltng:outApp" implements="ltng:allowGuestAccess">
     <aura:dependency resource="accordiontwo"/>
-    <html>
-        <script src="https://www.westmont.edu/lightning/lightning.out.js" ></script>
-
-
-        <div data-lightning-out="true"></div>
-
-        <script>
-            const appName = "c:Syllabus";
-            const componentName = "c:accordiontwo";
-            const lightningEndPointURI = "https://www.westmont.edu";
-            const targetElement = document.querySelector("[data-lightning-out]");
-            const componentAttributes = {};
-        
-            $lightning.use(
-                appName,
-                ()=>{
-                    $lightning.createComponent(
-                        componentName,
-                        componentAttributes,
-                        targetElement,
-                        function(cmp){
-                            console.log("lc created");
-                        }
-                    );
-                },
-                lightningEndPointURI
-            );
-        </script>
-    </html>
-
 </aura:application>	
